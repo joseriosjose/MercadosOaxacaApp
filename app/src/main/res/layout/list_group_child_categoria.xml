@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:padding="3dp">
+
+
+    <!-- S U B M E N U -->
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/imgListItem"
+        app:civ_border_width="2dp"
+        android:layout_marginLeft="50dp"
+        app:civ_border_color="@color/colorPrimary"/>
+
+    <TextView
+        android:id="@+id/lblListItem"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/sansitalic"
+        android:textColor="#848484"
+        android:layout_gravity="left"
+        android:layout_marginLeft="20dp"
+        android:paddingTop="17dp"
+        android:text="Hola"
+        android:autoSizeMaxTextSize="18dp"
+        android:autoSizeMinTextSize="15dp"
+        android:autoSizeTextType="uniform"/>
+
+
+    <!--android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft" -->
+
+</LinearLayout>

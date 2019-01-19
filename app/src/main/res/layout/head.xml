@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <RelativeLayout
+        android:id="@+id/circulo"
+        android:layout_width="match_parent"
+        android:layout_height="156dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="62dp"
+        android:background="@drawable/circle">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rectangulo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/rectangle">
+
+    </RelativeLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/logo"
+        android:layout_width="165dp"
+        android:layout_height="145dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+
+        app:civ_border_color="#ffffff"
+        app:civ_border_width="2dp" />
+
+    <TextView
+        android:id="@+id/nameMarket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="170dp"
+        android:textSize="28sp"
+        android:text="Mercado 20 de Noviembre"
+        android:fontFamily="@font/quicksandmedium"/>
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:fontFamily="@font/newscycleregular"
+        android:text="@string/_20_de_noviembre_512_centro_68000_oaxaca_oax"
+        android:textSize="13sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="225dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="left"
+        android:gravity="left"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/horaIndcador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/nameMarket"
+            android:layout_below="@+id/address"
+            android:fontFamily="@font/sansbold"
+            android:paddingStart="40dp"
+            android:text="Abierto:"
+            android:textAlignment="textEnd"
+            android:textColor="#00a72d"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/hora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/nameMarket"
+            android:layout_below="@+id/address"
+            android:fontFamily="@font/sansbold"
+            android:paddingStart="5dp"
+            android:text="00:00"
+            android:textAlignment="textEnd"
+            android:textSize="15sp" />
+
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="245dp"
+        android:layout_marginBottom="0dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titulo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/justifiedTextView"
+                android:layout_marginTop="15dp"
+                android:paddingLeft="40dp"
+                android:text="@string/historia"
+                android:textAlignment="textStart"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:layout_marginTop="20dp"
+                android:textSize="15dp"
+                android:lineSpacingExtra="10dp"
+                android:layout_marginBottom="90dp"
+                android:fontFamily="@font/quicksandmedium"
+                android:text="La construcción del mercado se inicio en marzo del año 1862 concluyéndose en 1882, el motivo de la realización de este mercado se debe a que años atrás la Plaza de las Armas y Plazuela de los Cantaros eran ocupadas por vendedores que día con día ponían su tianguis para vender sus productos, con el paso de los años La Plazuela de los Cantaros fue convertida en Alameda de León, hecho que llevo a los comerciantes a abandonar el lugar, los cuales se ubicaron en la Plaza del Marqués (mercado Benito Juárez), cuando la Plaza de las Armas se convirtió en Zócalo los comerciantes restantes se ubicaron en la misma plaza, ocasionando que no hubiera lugar suficiente para todos."/>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

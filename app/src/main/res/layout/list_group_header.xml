@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="#ffffff"
+    android:orientation="vertical">
+    <!--M E N U
+    android:paddingRight="?attr/listPreferredItemPaddingRight"-->
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="9dp"
+        android:layout_y="14dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/flecha_abajo" />
+
+    <TextView
+        android:id="@+id/lblListHeader"
+        android:fontFamily="@font/sansregular"
+        android:layout_width="333dp"
+        android:layout_height="38dp"
+        android:layout_x="37dp"
+        android:layout_y="10dp"
+        android:gravity="start"
+        android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
+        android:paddingStart="@dimen/activity_vertical_margin"
+        android:textColor="#6E6E6E"
+        android:textSize="16dp" />
+
+</AbsoluteLayout>
