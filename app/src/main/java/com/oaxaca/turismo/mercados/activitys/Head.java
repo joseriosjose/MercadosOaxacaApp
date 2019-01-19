@@ -78,7 +78,7 @@ public class Head extends Fragment {
         name.setText(mercado.getNombre() + "");
         history.setText(mercado.getHistoria() + "");
         String acum = "";
-        if(mercado.getDireccion()!=null) {
+        if(mercado.getDireccion()!=null && !mercado.getDireccion().equals("null")) {
             String[] dire = mercado.getDireccion().split(",");
             acum = "Calle " + dire[0] + ", Num." + dire[1] + " ,Col." + dire[2] + " ,CP." + dire[3];
 

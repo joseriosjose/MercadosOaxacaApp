@@ -32,10 +32,19 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.splashh">
         </activity>
+
         <activity
             android:name=".principal"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activitys.profile"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Profile" />
+        <activity
+            android:name=".activitys.Mapa"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".activitys.Activity_Local"
             android:screenOrientation="portrait"
