@@ -1,4 +1,4 @@
-package com.oaxaca.turismo.mercados.clases;
+package com.oaxaca.turismo.mercados.servicios;
 
 import android.content.Intent;
 import android.util.Log;
@@ -11,7 +11,8 @@ import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.Map;
 
-public class MyFirebaseMessagingService extends FirebaseMessagingService {
+public class
+MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = "MyFirebaseMsgingService";
     private static final String TITLE = "title";
     private static final String EMPTY = "";

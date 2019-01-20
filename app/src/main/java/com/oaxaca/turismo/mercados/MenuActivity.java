@@ -16,12 +16,11 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.oaxaca.turismo.mercados.clases.GoogleService;
+import com.oaxaca.turismo.mercados.servicios.GoogleService;
 import com.oaxaca.turismo.mercados.clases.Mercado;
 
 import org.json.JSONArray;

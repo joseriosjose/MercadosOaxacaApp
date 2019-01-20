@@ -1,4 +1,4 @@
-package com.oaxaca.turismo.mercados.clases;
+package com.oaxaca.turismo.mercados.servicios;
 
 
 import android.annotation.SuppressLint;
@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import com.oaxaca.turismo.mercados.MainActivity;
 import com.oaxaca.turismo.mercados.MainActivity2;
+import com.oaxaca.turismo.mercados.clases.NotificationUtils;
+import com.oaxaca.turismo.mercados.clases.NotificationVO;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

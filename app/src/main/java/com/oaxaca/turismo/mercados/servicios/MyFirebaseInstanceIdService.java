@@ -1,4 +1,4 @@
-package com.oaxaca.turismo.mercados.clases;
+package com.oaxaca.turismo.mercados.servicios;
 
 import android.util.Log;
 

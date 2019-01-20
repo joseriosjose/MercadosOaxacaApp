@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
-import com.oaxaca.turismo.mercados.clases.GoogleService;
+import com.oaxaca.turismo.mercados.servicios.GoogleService;
 import com.oaxaca.turismo.mercados.conexion.Peticiones;
 import java.util.Timer;
 import java.util.TimerTask;

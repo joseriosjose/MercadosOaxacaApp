@@ -55,18 +55,18 @@
             android:theme="@style/AppThemeMenu" />
         <activity android:name=".tutorialActivity" />
 
-        <service android:name=".clases.MyFirebaseInstanceIdService">
+        <service android:name=".servicios.MyFirebaseInstanceIdService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".clases.MyFirebaseMessagingService">
+        <service android:name=".servicios.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
-        <service android:name=".clases.GoogleService"></service>
+        <service android:name=".servicios.GoogleService"></service>
     </application>
 
 </manifest>
