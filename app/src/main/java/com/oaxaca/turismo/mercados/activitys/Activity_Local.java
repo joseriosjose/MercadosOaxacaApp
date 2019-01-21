@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.ms.square.android.expandabletextview.ExpandableTextView;
 import com.oaxaca.turismo.mercados.R;
@@ -19,13 +18,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Activity_Local extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
-
     static Categoria categoria;
-
-
     public static int c=0;
-
     private ExpandableTextView expTv1;
     private ExpandableTextView expTv2;
     private CircleImageView circleImageView;
@@ -36,26 +30,19 @@ public class Activity_Local extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
-
         circleImageView = (CircleImageView) findViewById(R.id.logo);
         expTv1 = (ExpandableTextView) findViewById(R.id.historia);
         expTv2 = (ExpandableTextView) findViewById(R.id.productos);
         catego = (TextView) findViewById(R.id.categoria);
         nombre = (TextView) findViewById(R.id.nombreLocal);
         nombreMercado = (TextView) findViewById(R.id.mercadoNombre);
-
         String nombre = getIntent().getExtras().getString("nombre")+"";
         nombreMercado.setText(nombre);
-
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(layoutManager);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, categoria);
         recyclerView.setAdapter(adapter);
-
-
-
-
         RelativeLayout backLa = (RelativeLayout) findViewById(R.id.backButton);
         backLa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,8 +50,6 @@ public class Activity_Local extends AppCompatActivity {
                 finish();
             }
         });
-
-
         refresh();
 
         circleImageView.setOnClickListener(new View.OnClickListener() {
@@ -78,8 +63,6 @@ public class Activity_Local extends AppCompatActivity {
         });
 
     }
-
-
 
     public void refresh() {
         String img =categoria.getLocales().get(c).getImageUrl();

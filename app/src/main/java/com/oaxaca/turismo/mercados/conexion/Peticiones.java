@@ -2,28 +2,23 @@ package com.oaxaca.turismo.mercados.conexion;
 
 import android.content.Context;
 import android.widget.Toast;
-
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.oaxaca.turismo.mercados.R;
-
 import org.json.JSONObject;
 
 public class Peticiones {
     public boolean banderita=false;
     public  Context contx;
-    public boolean veces=true;
     public Peticiones (Context contexto,String pet){
         contx=contexto;
         getPetitions(pet);
     }
 public  JSONObject loquellega;
-
     private void getPetitions(String urll){
-
         String url = urll;
         JsonObjectRequest objetojson = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
@@ -44,8 +39,6 @@ public  JSONObject loquellega;
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
     }
-
-
     public JSONObject getJSON(){
         return loquellega;
     }

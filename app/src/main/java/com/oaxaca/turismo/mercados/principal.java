@@ -1,6 +1,5 @@
 package com.oaxaca.turismo.mercados;
 
-import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -24,7 +23,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
-
 import com.oaxaca.turismo.mercados.activitys.Gallery;
 import com.oaxaca.turismo.mercados.activitys.Head;
 import com.oaxaca.turismo.mercados.activitys.Lista;
@@ -36,19 +34,15 @@ import com.oaxaca.turismo.mercados.clases.MenuModel;
 import com.oaxaca.turismo.mercados.clases.Mercado;
 import com.oaxaca.turismo.mercados.clases.Zonas;
 import com.oaxaca.turismo.mercados.conexion.Peticiones;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.oaxaca.turismo.mercados.MainActivity.base_url;
-import static com.oaxaca.turismo.mercados.MainActivity.llave;
 
 public class principal extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -66,11 +60,13 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
     static double lo=-96.727260,la=17.057874;
     static String seleccionado;
     int selecc;
-    String nombreMercado;
     Head comi;
     Gallery comi2;
     Lista comi3;
     Context mContext;
+    Peticiones peticion2,peticion3, peticion4;
+    int i=0;
+    boolean bandera = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,14 +93,10 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
-
-
         obtenerlosmercadosparaelmenu();
-
         botonesflotantes();
         botonMapa();
         mContext = getApplicationContext();
-
         comi = new Head() ;
         comi2 = new Gallery();
         comi3 = new Lista();
@@ -132,19 +124,16 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
     }
 
     public void botonMapa(){
-
         FloatingActionButton nuevo= (FloatingActionButton) findViewById(R.id.map);
         nuevo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mapita = new Intent(principal.this,Mapa.class);
-                startActivity(mapita);
-
-
                 try {
-                    Toast.makeText(getApplicationContext(),"Mapa del mercado.",Toast.LENGTH_LONG).show();
+                    Intent mapita = new Intent(principal.this,Mapa.class);
+                    startActivity(mapita);
+                    // Toast.makeText(getApplicationContext(),"Mapa del mercado.",Toast.LENGTH_LONG).show();
                 }catch (Exception e){
-                    Toast.makeText(getApplicationContext(),"Falló la visualización del mapa.",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),R.string.fallo_mapa,Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -172,13 +161,14 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // Manejar el elemento de la barra de acción hace clic aquí. La barra de acción
+        // Manejar automáticamente los clics en el botón Inicio / Arriba, durante tanto tiempo.
+        // a medida que especifique una actividad principal en AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast.makeText(getApplicationContext(),"Accion Configuracion",Toast.LENGTH_LONG).show();
             return true;
         }
 
@@ -188,8 +178,8 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
+        // Manejar los elementos de la vista de navegación aquí.
+        // int id = item.getItemId();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -198,7 +188,6 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
 
     //metodo que genera la barra de navegacion segun las arreglos
     private void prepareMenuData() {
-
         MenuModel childModel;
         for(int i=0; i<mercadostotal.size(); i++) {
             List<MenuModel> childModelsList = new ArrayList<>();
@@ -216,16 +205,8 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
         }
     }
 
-    Peticiones peticion2,peticion3, peticion4;
-    int i=0;
-
-
-
-    boolean bandera = true;
-
     //metodo que controla el funcionamiento de la barra de navegacion
     private void populateExpandableList(){
-
         expandableListAdapter = new Adaptador_ListaExpandible(this, headerList, childList);
         expandableListView.setAdapter(expandableListAdapter);
         expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
@@ -242,10 +223,8 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, final int childPosition, long id) {
-
                 if (childList.get(headerList.get(groupPosition)) != null) {
                     MenuModel model = childList.get(headerList.get(groupPosition)).get(childPosition);
-
                     seleccionado=model.getMenuName();
                     for(int i=0; i<mercadostotal.size(); i++) {
                         for (int j = 0; j < mercadostotal.get(i).getMercados().size(); j++) {
@@ -253,17 +232,14 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
                                 la=mercadostotal.get(i).getMercados().get(j).getLatitud();
                                 lo=mercadostotal.get(i).getMercados().get(j).getLongitud();
                                 selecc=mercadostotal.get(i).getMercados().get(j).getId_mercado();
-
                             }
                         }
-
                     }
                     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
                     drawer.closeDrawer(GravityCompat.START);
                     onBackPressed();
                     /**
                      * MANDAR A LLAMAR METODO**/
-
                     peticion2 = new Peticiones(getApplicationContext(),
                             MainActivity.getBase_url()+"Mercado/mercadoById/"+MainActivity.getLlave()+"/"+selecc);
                     peticion3 = new Peticiones(getApplicationContext(),
@@ -275,6 +251,7 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
                     final ProgressDialog progress =new ProgressDialog(principal.this);
                     progress.setMessage("Descargando Informacion");
                     progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                    progress.setCancelable(false);
                     progress.show();
                     new Thread() {
                         public void run() {
@@ -311,8 +288,6 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
                                 i++;
 
                             }
-
-
                         }
                     }.start();
                     return true;
@@ -325,13 +300,12 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
 
 
 
-
     private ArrayList<Zonas> mercadostotal;
 
     private void obtenerlosmercadosparaelmenu(){
-       mercadostotal = new ArrayList<Zonas>();
-       String zonaactua="";
-       ArrayList<Mercado> mercadostt = new ArrayList<Mercado>();
+        mercadostotal = new ArrayList<Zonas>();
+        String zonaactua="";
+        ArrayList<Mercado> mercadostt = new ArrayList<Mercado>();
         JSONObject objJson = lista;
         try{
             JSONArray listaJson = objJson.optJSONArray("mercados");
@@ -378,7 +352,7 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
                 mercadostotal.add(new Zonas(zonaactua,t));
             }
         }catch (Exception ex){
-            Toast.makeText(this,ex.toString(),Toast.LENGTH_LONG).show();
+            // Toast.makeText(this,ex.toString(),Toast.LENGTH_LONG).show();
         }
         Collections.sort(mercadostotal, new Comparator<Zonas>() {
             public int compare(Zonas obj1, Zonas obj2) {
@@ -406,7 +380,6 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
                     obj_dato.getString("horaC"),
                     obj_dato.getString("imagen"));
         }catch (Exception ex){
-
         }
         return m;
     }

@@ -101,4 +101,3 @@ public class Gallery extends Fragment {
         this.im = arrayImages;
     }
 }
-

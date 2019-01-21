@@ -42,7 +42,6 @@ public class SlideshowDialogFragment extends DialogFragment {
     private TextView lblCount;
     private int selectedPosition = 0;
     String setImgLink = "";
-    ImageView share, download;
 
     static SlideshowDialogFragment newInstance() {
         SlideshowDialogFragment f = new SlideshowDialogFragment();
@@ -56,8 +55,6 @@ public class SlideshowDialogFragment extends DialogFragment {
         viewPager = (ViewPager) v.findViewById(R.id.viewpager);
         lblCount = (TextView) v.findViewById(R.id.lbl_count);
 
-        // share = (ImageView) v.findViewById(R.id.share);
-        // download = (ImageView) v.findViewById(R.id.download);
 
         final ImageView imageViewPreview = (ImageView) v.findViewById(R.id.image_preview);
 
@@ -72,54 +69,10 @@ public class SlideshowDialogFragment extends DialogFragment {
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
 
         setCurrentItem(selectedPosition);
-/*
-        share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                shareItem(setImgLink);
-            }
-        });
 
-        download.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String url = setImgLink;
-            }
-        });*/
 
         return v;
     }
-
-    public void shareItem(String url) {
-        Picasso.with(getContext()).load(url).into(new Target() {
-            @Override
-            public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.setType("image/*");
-                i.putExtra(Intent.EXTRA_STREAM, getLocalBitmapUri(bitmap));
-                startActivity(Intent.createChooser(i, "Share Image"));
-            }
-            @Override
-            public void onBitmapFailed(Drawable errorDrawable) { }
-            @Override
-            public void onPrepareLoad(Drawable placeHolderDrawable) { }
-        });
-    }
-
-    public Uri getLocalBitmapUri(Bitmap bmp) {
-        Uri bmpUri = null;
-        try {
-            File file =  new File(getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES), "share_image_" + System.currentTimeMillis() + ".png");
-            FileOutputStream out = new FileOutputStream(file);
-            bmp.compress(Bitmap.CompressFormat.PNG, 100, out);
-            out.close();
-            bmpUri = Uri.fromFile(file);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return bmpUri;
-    }
-
 
 
     private void setCurrentItem(int position) {
@@ -176,12 +129,6 @@ public class SlideshowDialogFragment extends DialogFragment {
             ImageView imageViewPreview = (ImageView) view.findViewById(R.id.image_preview);
 
             Image image = images.get(position);
-
-            /*Glide.with(getActivity()).load(image.getLarge())
-                    .thumbnail(0.5f)
-                    .crossFade()
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .into(imageViewPreview);*/
 
             Glide.with(getActivity()).load(image.getLarge())
                     .thumbnail(0.5f)

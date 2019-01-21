@@ -1,29 +1,19 @@
 package com.oaxaca.turismo.mercados;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import com.oaxaca.turismo.mercados.MenuActivity;
 import com.oaxaca.turismo.mercados.conexion.Peticiones;
-import com.oaxaca.turismo.mercados.principal;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static com.oaxaca.turismo.mercados.MainActivity.base_url;
-import static com.oaxaca.turismo.mercados.MainActivity.llave;
-
-
 public class MainActivity2 extends AppCompatActivity {
-    static String base_url = "http://hernandezislasadrian.000webhostapp.com/";
-    static String llave="r5da3dfd0dssw4hfohu9fdgrv14";
-
+    static String base_url = MainActivity.base_url;
+    static String llave=MainActivity.llave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +33,7 @@ public class MainActivity2 extends AppCompatActivity {
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
-                        Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.error_conexion,Toast.LENGTH_LONG).show();
                     }
                 }
                 principal.lista=peticion.getJSON();
@@ -51,7 +41,7 @@ public class MainActivity2 extends AppCompatActivity {
                 principal.galeri=peticion3.getJSON();
                 principal.giros = peticion4.getJSON();
 
-                Intent intent = null;
+                Intent intent ;
                 if(principal.lista!=null && principal.infomer!=null && principal.galeri!=null && principal.giros!=null)
                 {
                     // progress.setMessage("Informacion Lista");    //esto ya esta full
@@ -71,6 +61,7 @@ public class MainActivity2 extends AppCompatActivity {
                     }catch (Exception e){}
 
                     startActivity(intent);
+
                     finish();
                 }
                 else{

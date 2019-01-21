@@ -1,7 +1,6 @@
 package com.oaxaca.turismo.mercados.conexion;
 
 import android.content.Context;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
@@ -22,7 +21,6 @@ public class VolleySingleton {
         }
         return instanciaVolley;
     }
-
 
     public RequestQueue getRequestQueue() {
         if(request == null){

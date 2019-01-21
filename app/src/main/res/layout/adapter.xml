@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="6dp"
-                android:text="Este es un apruba con in tecoto bien feo"
+                android:text="Este es una pruba "
                 android:textAlignment="center"
                 android:textColor="@color/colornegro"
                 android:autoSizeMinTextSize="12dp"
@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/extra" />
+                android:background="@mipmap/ic_launcher_round" />
 
         </LinearLayout>
 

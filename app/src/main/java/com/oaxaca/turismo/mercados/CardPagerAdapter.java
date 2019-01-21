@@ -10,11 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 import com.oaxaca.turismo.mercados.conexion.Peticiones;
-
 import java.util.ArrayList;
 import java.util.List;
 import static com.oaxaca.turismo.mercados.MainActivity.base_url;
@@ -113,6 +110,7 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
         final ProgressDialog progress =new ProgressDialog(estees);
         progress.setMessage("Descargando Informacion");
         progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progress.setCancelable(false);
         progress.show();
         Thread hilo = new Thread(new Runnable() {
             @Override
@@ -128,14 +126,14 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
-                        Toast.makeText(estees,e.toString(),Toast.LENGTH_LONG).show();
+                       // Toast.makeText(estees,e.toString(),Toast.LENGTH_LONG).show();
                     }
                 }
                 principal.infomer=peticion2.getJSON();
                 principal.galeri=peticion3.getJSON();
                 principal.giros = peticion4.getJSON();
 
-                Intent intent = null;
+                Intent intent;
                 if(principal.lista!=null && principal.infomer!=null && principal.galeri!=null && principal.giros!=null)
                 {
                     bandera=true;

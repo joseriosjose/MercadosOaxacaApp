@@ -1,6 +1,5 @@
 package com.oaxaca.turismo.mercados.adapter;
 
-
 import android.content.Context;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
@@ -8,10 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
-
 import com.oaxaca.turismo.mercados.clases.MenuModel;
 import com.oaxaca.turismo.mercados.R;
-
 import java.util.HashMap;
 import java.util.List;
 

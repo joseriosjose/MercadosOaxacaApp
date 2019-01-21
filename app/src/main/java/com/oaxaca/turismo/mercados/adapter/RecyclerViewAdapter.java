@@ -3,36 +3,21 @@ package com.oaxaca.turismo.mercados.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 import com.ms.square.android.expandabletextview.ExpandableTextView;
-import com.oaxaca.turismo.mercados.MainActivity;
 import com.oaxaca.turismo.mercados.R;
-import com.oaxaca.turismo.mercados.activitys.Activity_Local;
 import com.oaxaca.turismo.mercados.activitys.profile;
 import com.oaxaca.turismo.mercados.clases.Categoria;
-
-import java.util.ArrayList;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
-/**
- * Created by User on 2/12/2018.
- */
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter <RecyclerViewAdapter.ViewHolder> {
-
-    private static final String TAG = "RecyclerViewAdapter";
 
     //vars
     private Categoria categoria;
@@ -76,7 +61,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter <RecyclerViewAdapt
                     openLocal(position);
 
                 }catch (Exception e){
-                    Log.d(TAG, e.toString());
+
                 }
             }
         });

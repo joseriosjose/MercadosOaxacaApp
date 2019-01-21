@@ -5,17 +5,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-
 import com.oaxaca.turismo.mercados.R;
 import com.oaxaca.turismo.mercados.adapter.AdaptadorListaExpandible;
 import com.oaxaca.turismo.mercados.clases.Categoria;
 import com.oaxaca.turismo.mercados.clases.MenuModel;
-import com.oaxaca.turismo.mercados.clases.Mercado;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -74,7 +71,6 @@ public class Lista extends Fragment  {
                 childModelsList.add(childModel);
             }
             if (menuModel.hasChildren) {
-                Log.d("API123", "here");
                 childList.put(menuModel, childModelsList);
             }
 

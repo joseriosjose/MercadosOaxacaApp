@@ -2,9 +2,7 @@ package com.oaxaca.turismo.mercados.servicios;
 
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
@@ -13,11 +11,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
-import android.util.Log;
-import android.widget.Toast;
-
 import com.oaxaca.turismo.mercados.MainActivity;
-import com.oaxaca.turismo.mercados.MainActivity2;
 import com.oaxaca.turismo.mercados.clases.NotificationUtils;
 import com.oaxaca.turismo.mercados.clases.NotificationVO;
 
@@ -26,7 +20,6 @@ import org.json.JSONObject;
 
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.ExecutionException;
 
 
 public class GoogleService extends Service implements LocationListener{
@@ -38,9 +31,7 @@ public class GoogleService extends Service implements LocationListener{
     Location location;
     private Handler mHandler = new Handler();
     private Timer mTimer = null;
-    long notify_interval = 90000;
-    public static String str_receiver = "servicetutorial.service.receiver";
-    Intent intent;
+    long notify_interval = 9000;
     public static JSONObject listam,urlimg;
 
     Location location2 = new Location("localizacion 2");
@@ -61,8 +52,6 @@ public class GoogleService extends Service implements LocationListener{
         super.onCreate();
         mTimer = new Timer();
         mTimer.schedule(new TimerTaskToGetLocation(),5,notify_interval);
-        intent = new Intent(str_receiver);
-        // fn_getlocation();
     }
 
     @Override
@@ -102,9 +91,6 @@ public class GoogleService extends Service implements LocationListener{
                     location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
                     if (location!=null){
 
-                        Log.e("latitude",location.getLatitude()+"");
-                        Log.e("longitude",location.getLongitude()+"");
-
                         latitude = location.getLatitude();
                         longitude = location.getLongitude();
                         fn_update(location);
@@ -120,8 +106,6 @@ public class GoogleService extends Service implements LocationListener{
                 if (locationManager!=null){
                     location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                     if (location!=null){
-                        Log.e("latitude",location.getLatitude()+"");
-                        Log.e("longitude",location.getLongitude()+"");
                         latitude = location.getLatitude();
                         longitude = location.getLongitude();
                         fn_update(location);
@@ -149,13 +133,9 @@ public class GoogleService extends Service implements LocationListener{
     }
 
     private void fn_update(Location location){
-
-        intent.putExtra("latutide",location.getLatitude()+"");
-        intent.putExtra("longitude",location.getLongitude()+"");
         revisar();
-        //sendBroadcast(intent);
     }
-    public boolean banderola=true;
+
     private void revisar() {
         JSONObject objJson = listam;
         JSONObject objJson2 = urlimg;
@@ -185,14 +165,12 @@ public class GoogleService extends Service implements LocationListener{
                 final String nnn=nombre;
                 final int iddd=id_m;
                 double distance = location.distanceTo(location2);
-                Log.d("ladistancia","dis"+distance);
                 if(distance<3210 && distance>10){
 
                     Thread hilo = new Thread(new Runnable() {
                         @Override
                         public void run() {
 
-                            Log.d("verga","imagen"+url+"nombre"+nnn+"idm"+iddd);
                             NotificationVO notificationVO = new NotificationVO();
                             notificationVO.setTitle(nnn);
                             notificationVO.setMessage("Descubre Oaxaca");
@@ -202,7 +180,6 @@ public class GoogleService extends Service implements LocationListener{
                             Intent resultIntent = new Intent(getApplicationContext(), MainActivity.class);
 
                             NotificationUtils notificationUtils = new NotificationUtils(getApplicationContext());
-                            // notificationUtils.displayNotification(notificationVO, resultIntent);
                             notificationUtils.createNotification(notificationVO,resultIntent,getApplicationContext());
 
                             if(!notificationUtils.playNotificationSound()){
@@ -225,7 +202,7 @@ public class GoogleService extends Service implements LocationListener{
             }
 
         }catch (Exception ex){
-            Toast.makeText(this,ex.toString(),Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,ex.toString(),Toast.LENGTH_LONG).show();
         }
     }
 

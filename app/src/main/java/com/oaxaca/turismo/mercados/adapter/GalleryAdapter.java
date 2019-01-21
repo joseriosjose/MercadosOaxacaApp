@@ -8,11 +8,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import com.bumptech.glide.Glide;
 import com.oaxaca.turismo.mercados.clases.Image;
 import com.oaxaca.turismo.mercados.R;
-
 import java.util.List;
 
 import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
@@ -30,7 +28,6 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MyViewHo
             thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
         }
     }
-
 
     public GalleryAdapter(Context context, List<Image> images) {
         mContext = context;

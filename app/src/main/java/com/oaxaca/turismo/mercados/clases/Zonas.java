@@ -1,9 +1,5 @@
 package com.oaxaca.turismo.mercados.clases;
 
-
-import android.support.annotation.NonNull;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Zonas {//implements Comparable<Zonas> {

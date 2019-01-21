@@ -2,10 +2,8 @@ package com.oaxaca.turismo.mercados;
 
 import android.graphics.Color;
 import android.os.Bundle;
-
 import com.hololo.tutorial.library.Step;
 import com.hololo.tutorial.library.TutorialActivity;
-
 public class tutorialActivity extends TutorialActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

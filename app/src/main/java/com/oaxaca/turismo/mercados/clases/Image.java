@@ -3,9 +3,6 @@ package com.oaxaca.turismo.mercados.clases;
 
 import java.io.Serializable;
 
-/**
- * Created by Lincoln on 04/04/16.
- */
 public class Image implements Serializable{
     private String small, medium, large;
 

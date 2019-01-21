@@ -4,10 +4,8 @@ package com.oaxaca.turismo.mercados;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
@@ -18,36 +16,23 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
-
 import com.oaxaca.turismo.mercados.servicios.GoogleService;
 import com.oaxaca.turismo.mercados.clases.Mercado;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 public class MenuActivity extends AppCompatActivity {
     static JSONObject listam,urlimg;
-    static ArrayList<Mercado> mercad = new ArrayList<Mercado>();
     private ViewPager mViewPager;
     private CardPagerAdapter mCardAdapter;
     private ShadowTransformer mCardShadowTransformer;
-
     private static final int REQUEST_PERMISSIONS = 100;
     boolean boolean_permission;
     SharedPreferences mPref;
     SharedPreferences.Editor medit;
-    Double latitude,longitude;
     Geocoder geocoder;
-    Location location2 = new Location("localizacion 2");
-
-    Location location1 = new Location("localizacion 1");
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +81,9 @@ public class MenuActivity extends AppCompatActivity {
                 startService(intent);
 
             } else {
-                Toast.makeText(getApplicationContext(), "el servicio ya esta corriendo", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), GoogleService.class);
+                startService(intent);
+                //Toast.makeText(getApplicationContext(), "el servicio ya esta corriendo", Toast.LENGTH_SHORT).show();
             }
         } else {
             //Toast.makeText(getApplicationContext(), "Por favor habilita el gps", Toast.LENGTH_SHORT).show();
@@ -129,7 +116,7 @@ public class MenuActivity extends AppCompatActivity {
             }
 
         }catch (Exception ex){
-            Toast.makeText(this,ex.toString(),Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,ex.toString(),Toast.LENGTH_LONG).show();
         }
     }
 
@@ -154,7 +141,7 @@ public class MenuActivity extends AppCompatActivity {
             }
         } else {
             boolean_permission = true;
-            Toast.makeText(getApplicationContext(), "el servicio ya esta", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "el servicio ya esta", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -167,65 +154,11 @@ public class MenuActivity extends AppCompatActivity {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     boolean_permission = true;
                 } else {
-                    Toast.makeText(getApplicationContext(), "Please danos permisisos", Toast.LENGTH_LONG).show();
+                  //  Toast.makeText(getApplicationContext(),R.string.peticion, Toast.LENGTH_LONG).show();
 
                 }
             }
         }
     }
 
-    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-
-            latitude = Double.valueOf(intent.getStringExtra("latutide"));
-            longitude = Double.valueOf(intent.getStringExtra("longitude"));
-
-            List<Address> addresses = null;
-
-            try {
-                addresses = geocoder.getFromLocation(latitude, longitude, 1);
-                String cityName = addresses.get(0).getAddressLine(0);
-                String stateName = addresses.get(0).getAddressLine(1);
-                String countryName = addresses.get(0).getAddressLine(2);
-
-               /* tv_area.setText(addresses.get(0).getAdminArea());
-                tv_locality.setText(stateName);
-                tv_address.setText(countryName);
-            */
-
-
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-
-
-            //tv_latitude.setText(latitude+"");
-            //tv_longitude.setText(longitude+"");
-            location1.setLatitude(latitude);
-            location1.setLongitude(longitude);
-            double distance = location1.distanceTo(location2);
-            /*if(distance<80 && distance>10){
-                cerquita.setText(distance+" estas cerca");
-            }else{
-                cerquita.setText(distance+" estas lejos");
-            }
-            tv_address.getText();*/
-
-
-        }
-    };
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        registerReceiver(broadcastReceiver, new IntentFilter(GoogleService.str_receiver));
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        unregisterReceiver(broadcastReceiver);
-    }
 }

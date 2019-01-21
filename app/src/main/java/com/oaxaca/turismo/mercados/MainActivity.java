@@ -9,7 +9,6 @@ import com.oaxaca.turismo.mercados.conexion.Peticiones;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
 public class MainActivity extends AppCompatActivity {
     public static String base_url = "https://www.mercadosoaxacadejuarez.com/";
     public static String llave="jose_es_puto";
@@ -17,8 +16,6 @@ public class MainActivity extends AppCompatActivity {
     //290782SAAdrian
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
 
         Thread hilo = new Thread(new Runnable() {
             @Override
@@ -31,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
-                        Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.error_conexion,Toast.LENGTH_LONG).show();
                     }
                 }
                 principal.lista=peticion.getJSON();
@@ -39,16 +36,14 @@ public class MainActivity extends AppCompatActivity {
                 MenuActivity.urlimg=peticion2.getJSON();
                 GoogleService.listam=peticion.getJSON();
                 GoogleService.urlimg=peticion2.getJSON();
-                Intent intent = null;
+                Intent intent ;
                 if(MenuActivity.listam!=null && MenuActivity.urlimg!=null )
                 {
                         intent = new Intent(getApplicationContext(), MenuActivity.class);
                         startActivity(intent);
                         finish();
-
                 }
                 else{
-
                     TimerTask timerTask = new TimerTask() {
                         int cont = 3;
                         @Override
@@ -64,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
                     Timer t = new Timer();
                     t.schedule(timerTask,1000,1000);
                 }
-
             }
         });
         hilo.start();
@@ -77,6 +71,5 @@ public class MainActivity extends AppCompatActivity {
     public static String getLlave(){
         return llave;
     }
-
 
 }

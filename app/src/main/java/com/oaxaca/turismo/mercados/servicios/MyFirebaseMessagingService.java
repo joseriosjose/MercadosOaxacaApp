@@ -1,14 +1,11 @@
 package com.oaxaca.turismo.mercados.servicios;
 
 import android.content.Intent;
-import android.util.Log;
-
 import com.oaxaca.turismo.mercados.MainActivity;
 import com.oaxaca.turismo.mercados.clases.NotificationUtils;
 import com.oaxaca.turismo.mercados.clases.NotificationVO;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-
 import java.util.Map;
 
 public class
@@ -25,16 +22,16 @@ MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
-        Log.d(TAG, "From: " + remoteMessage.getFrom());
+      // Log.d(TAG, "From: " + remoteMessage.getFrom());
 
         // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
-            Log.d(TAG, "Message data payload: " + remoteMessage.getData());
+          //  Log.d(TAG, "Message data payload: " + remoteMessage.getData());
             Map<String, String> data = remoteMessage.getData();
             handleData(data);
 
         } else if (remoteMessage.getNotification() != null) {
-            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+          //  Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
             handleNotification(remoteMessage.getNotification());
         }// Check if message contains a notification payload.
 
@@ -46,10 +43,8 @@ MyFirebaseMessagingService extends FirebaseMessagingService {
         NotificationVO notificationVO = new NotificationVO();
         notificationVO.setTitle(title);
         notificationVO.setMessage(message);
-
         Intent resultIntent = new Intent(getApplicationContext(), MainActivity.class);
         NotificationUtils notificationUtils = new NotificationUtils(getApplicationContext());
-        // notificationUtils.displayNotification(notificationVO, resultIntent);
         notificationUtils.createNotification(notificationVO,resultIntent,getApplicationContext());
         notificationUtils.playNotificationSound();
     }
@@ -67,11 +62,8 @@ MyFirebaseMessagingService extends FirebaseMessagingService {
         notificationVO.setIconUrl(iconUrl);
         notificationVO.setAction(action);
         notificationVO.setActionDestination(actionDestination);
-
         Intent resultIntent = new Intent(getApplicationContext(), MainActivity.class);
-
         NotificationUtils notificationUtils = new NotificationUtils(getApplicationContext());
-        // notificationUtils.displayNotification(notificationVO, resultIntent);
         notificationUtils.createNotification(notificationVO,resultIntent,getApplicationContext());
         notificationUtils.playNotificationSound();
 
