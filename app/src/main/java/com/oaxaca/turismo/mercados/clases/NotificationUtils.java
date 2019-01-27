@@ -24,11 +24,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-
+import java.util.Random;
 
 
 public class NotificationUtils {
-    private static final int NOTIFICATION_ID = 200;
+    public static int NOTIFICATION_ID = 200;
     private static final String CHANNEL_ID = "0";
     private static final String URL = "url";
     private static final String ACTIVITY = "activity";
@@ -101,7 +101,7 @@ public class NotificationUtils {
                     if (mChannel == null) {
                         mChannel = new NotificationChannel(id, title, importance);
                         mChannel.enableVibration(true);
-                        mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+                        mChannel.setVibrationPattern(new long[]{100, 200, 100, 400, 500});
                         notifManager.createNotificationChannel(mChannel);
                     }
 
@@ -114,7 +114,8 @@ public class NotificationUtils {
                                 .setAutoCancel(true)
                                 .setContentIntent(resultPendingIntent)
                                 .setContentText(message)
-                                .setVibrate(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+                                .setVibrate(new long[]{100, 200, 100, 400, 500});
+                        //new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400}
                     }else{
                         NotificationCompat.BigPictureStyle bigPictureStyle = new NotificationCompat.BigPictureStyle();
                         bigPictureStyle.setBigContentTitle(title2);
@@ -128,12 +129,12 @@ public class NotificationUtils {
                                 .setContentIntent(resultPendingIntent)
                                 .setContentText(message)
                                 .setStyle(bigPictureStyle)
-                                .setSmallIcon(R.mipmap.ic_launcher)
                                 .setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), icon))
-                                .setVibrate(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+                                .setVibrate(new long[]{100, 200, 100, 400, 500});
                     }
                     Notification notification = builder.build();
-                    notifManager.notify(NOTIFY_ID, notification);
+                    notifManager.notify(new Random().nextInt(200), notification);
+                    /////////////
             } else {//si no es oreo
                 final NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
                         mContext, CHANNEL_ID);
@@ -152,7 +153,6 @@ public class NotificationUtils {
                             .setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), icon))
                             .setContentText(message)
                             .build();
-
                 } else {
                     //Si se crea Bitmap desde la URL, muestra el ícono grande
                     NotificationCompat.BigPictureStyle bigPictureStyle = new NotificationCompat.BigPictureStyle();
@@ -170,7 +170,7 @@ public class NotificationUtils {
                             .build();
                 }
                 NotificationManager notificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
-                notificationManager.notify(NOTIFICATION_ID, notification);
+                notificationManager.notify(new Random().nextInt(200), notification);
             }
         }catch (Exception e){
 

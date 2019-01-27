@@ -1,11 +1,15 @@
 package com.oaxaca.turismo.mercados;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 import com.oaxaca.turismo.mercados.servicios.GoogleService;
 import com.oaxaca.turismo.mercados.conexion.Peticiones;
+
+import java.io.OutputStreamWriter;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -36,11 +40,38 @@ public class MainActivity extends AppCompatActivity {
                 MenuActivity.urlimg=peticion2.getJSON();
                 GoogleService.listam=peticion.getJSON();
                 GoogleService.urlimg=peticion2.getJSON();
+                //para crear un archivo con los json
+
+                /*try
+                {
+                    OutputStreamWriter fout=
+                            new OutputStreamWriter(
+                                    openFileOutput("listamercados.txt", Context.MODE_PRIVATE));
+
+                    fout.write(peticion.getJSON().toString());
+
+                    OutputStreamWriter fout2=
+                            new OutputStreamWriter(
+                                    openFileOutput("listaimagenes.txt", Context.MODE_PRIVATE));
+
+                    fout2.write(peticion2.getJSON().toString());
+
+                    fout.close();
+                    fout2.close();
+                    //GoogleService.crear();
+                }
+                catch (Exception ex)
+                {
+                    Log.e("Ficheros", "Error al escribir fichero a memoria interna");
+                }*/
+
                 Intent intent ;
                 if(MenuActivity.listam!=null && MenuActivity.urlimg!=null )
                 {
                         intent = new Intent(getApplicationContext(), MenuActivity.class);
+                      // startService(new Intent(getApplicationContext(),GoogleService.class));
                         startActivity(intent);
+
                         finish();
                 }
                 else{

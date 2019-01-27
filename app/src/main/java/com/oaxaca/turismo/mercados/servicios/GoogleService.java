@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.widget.Toast;
+
 import com.oaxaca.turismo.mercados.MainActivity;
 import com.oaxaca.turismo.mercados.clases.NotificationUtils;
 import com.oaxaca.turismo.mercados.clases.NotificationVO;
@@ -18,6 +20,8 @@ import com.oaxaca.turismo.mercados.clases.NotificationVO;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -31,7 +35,7 @@ public class GoogleService extends Service implements LocationListener{
     Location location;
     private Handler mHandler = new Handler();
     private Timer mTimer = null;
-    long notify_interval = 9000;
+    long notify_interval = 40000;
     public static JSONObject listam,urlimg;
 
     Location location2 = new Location("localizacion 2");
@@ -83,7 +87,7 @@ public class GoogleService extends Service implements LocationListener{
         if (!isGPSEnable && !isNetworkEnable){
 
         }else {
-
+           boolean bann=false;
             if (isNetworkEnable){
                 location = null;
                 locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,1000,0,this);
@@ -93,13 +97,12 @@ public class GoogleService extends Service implements LocationListener{
 
                         latitude = location.getLatitude();
                         longitude = location.getLongitude();
-                        fn_update(location);
+                         bann=true;
+                        // /fn_update(location);
                     }
                 }
 
             }
-
-
             if (isGPSEnable){
                 location = null;
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000,0,this);
@@ -108,9 +111,14 @@ public class GoogleService extends Service implements LocationListener{
                     if (location!=null){
                         latitude = location.getLatitude();
                         longitude = location.getLongitude();
-                        fn_update(location);
+                        bann=true;
+                        //fn_update(location);
                     }
                 }
+            }
+
+            if(bann){
+                fn_update(location);
             }
 
 
@@ -136,7 +144,46 @@ public class GoogleService extends Service implements LocationListener{
         revisar();
     }
 
+    JSONObject lm, li;
+
+    public void crear(){
+        try
+        {
+            BufferedReader fin =
+                    new BufferedReader(
+                            new InputStreamReader(
+                                    openFileInput("listamercados.txt")));
+
+            String texto = fin.readLine();
+            //Toast.makeText(getApplicationContext(),texto,Toast.LENGTH_SHORT).show();
+            lm = new JSONObject(texto);
+            BufferedReader fin2 =
+                    new BufferedReader(
+                            new InputStreamReader(
+                                    openFileInput("listaimagenes.txt")));
+
+            String texto2 = fin2.readLine();
+            //Toast.makeText(getApplicationContext(),texto2,Toast.LENGTH_SHORT).show();
+            li = new JSONObject(texto2);
+            /*fin =new BufferedReader(
+                            new InputStreamReader(
+                                    openFileInput("listaimagenes.txt")));
+
+            texto = fin.readLine();
+            li = new JSONObject(texto);*/
+            fin2.close();
+            fin.close();
+
+        }
+        catch (Exception ex)
+        {
+            Toast.makeText(getApplicationContext(),"NEL NO HAY ARCHIVOS",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
     private void revisar() {
+
         JSONObject objJson = listam;
         JSONObject objJson2 = urlimg;
         try{
@@ -144,7 +191,7 @@ public class GoogleService extends Service implements LocationListener{
             JSONArray listaJson = objJson.optJSONArray("mercados");
             for(int i=0; i< listaJson.length(); i++) {
                 JSONObject obj_dato = listaJson.getJSONObject(i);
-                int id_m = obj_dato.getInt("idMercado");
+                final int id_m = obj_dato.getInt("idMercado");
                 String nombre = obj_dato.getString("nombre");
                 double lati = obj_dato.getDouble("latitud");
                 double longi = obj_dato.getDouble("longitud");
@@ -165,7 +212,7 @@ public class GoogleService extends Service implements LocationListener{
                 final String nnn=nombre;
                 final int iddd=id_m;
                 double distance = location.distanceTo(location2);
-                if(distance<3210 && distance>10){
+                if(distance<4210 && distance>10){
 
                     Thread hilo = new Thread(new Runnable() {
                         @Override
@@ -181,20 +228,11 @@ public class GoogleService extends Service implements LocationListener{
 
                             NotificationUtils notificationUtils = new NotificationUtils(getApplicationContext());
                             notificationUtils.createNotification(notificationVO,resultIntent,getApplicationContext());
-
-                            if(!notificationUtils.playNotificationSound()){
-                                try {
-                                    Thread.sleep(1000);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
-                            }
+                            notificationUtils.playNotificationSound();
 
                         }
                     });
                     hilo.start();
-
-
 
                 }else{
                     //Toast.makeText(getApplicationContext(),"lejos"+nombre,Toast.LENGTH_SHORT).show();
@@ -202,7 +240,7 @@ public class GoogleService extends Service implements LocationListener{
             }
 
         }catch (Exception ex){
-            //Toast.makeText(this,ex.toString(),Toast.LENGTH_LONG).show();
+           // Toast.makeText(this,"sigo vivo",Toast.LENGTH_LONG).show();
         }
     }
 

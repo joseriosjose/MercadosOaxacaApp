@@ -8,7 +8,7 @@
     <string name="instala_nave">No se reconoce alguna aplicación de mapas </string>
     <string name="texto_inicial">¿A dónde será tu siguiente aventura?</string>
     <string name="default_notification_channel_id">default_channel_id</string>
-    <string name="default_notification_channel_title">Default Channel</string>
+    <string name="default_notification_channel_title">Canal de notificacion</string>
     <string name="title_activity_image_profile">image_profile</string>
     <string name="peticion">Por favor actualiza los permisos</string>
     <string name="fallo_mapa">Falló la visualización del mapa.</string>
