@@ -2,8 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_English"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/action_settingsI"
+        app:showAsAction="never"
+        android:icon="@mipmap/ic_launcher_round"/>
+    <item
+        android:id="@+id/action_expañol"
+        android:orderInCategory="100"
+        android:title="@string/action_settingsE"
         app:showAsAction="never" />
 </menu>

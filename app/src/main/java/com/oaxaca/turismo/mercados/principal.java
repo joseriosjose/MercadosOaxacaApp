@@ -3,6 +3,7 @@ package com.oaxaca.turismo.mercados;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -42,6 +43,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 
 public class principal extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -167,8 +169,29 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Toast.makeText(getApplicationContext(),"Accion Configuracion",Toast.LENGTH_LONG).show();
+        if (id == R.id.action_expañol) {
+            Toast.makeText(getApplicationContext(),"Poner en español WE",Toast.LENGTH_LONG).show();
+            Locale localizacion = new Locale("es", "ES");
+
+            Locale.setDefault(localizacion);
+            Configuration config = new Configuration();
+            config.locale = localizacion;
+            getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+            Intent i_in  = new Intent(getApplicationContext(),principal.class);
+            i_in.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(i_in);
+
+            return true;
+        }else if (id == R.id.action_English) {
+            Toast.makeText(getApplicationContext(),"TRANSLATE TO ENGLISH",Toast.LENGTH_LONG).show();
+            Locale localizacion = new Locale("en", "EN");
+            Locale.setDefault(localizacion);
+            Configuration config = new Configuration();
+            config.locale = localizacion;
+            getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+            Intent i_in  = new Intent(getApplicationContext(),principal.class);
+            i_in.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(i_in);
             return true;
         }
 
@@ -315,12 +338,12 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
                 String nombre = obj_dato.getString("nombre");
                 String zona = obj_dato.getString("zona");
                 switch (zona){
-                    case "C": zona="Zona Centro"; break;
-                    case "CH": zona="Zona Centro Historico";break;
-                    case "S": zona="Zona Sur";break;
-                    case "O": zona="Zona Oriente";break;
-                    case "N": zona="Zona Norte";break;
-                    case "P": zona="Zona Poniente";break;
+                    case "C": zona= getString(R.string.menu_exp_zona); break;
+                    case "CH": zona=getString(R.string.menu_exp_zona2);break;
+                    case "S": zona=getString(R.string.menu_exp_zona3);break;
+                    case "O": zona=getString(R.string.menu_exp_zona4);break;
+                    case "N": zona=getString(R.string.menu_exp_zona5);break;
+                    case "P": zona=getString(R.string.menu_exp_zona6);break;
                 }
 
                 double latitudm = obj_dato.getDouble("latitud");

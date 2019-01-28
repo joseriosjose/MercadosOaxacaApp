@@ -1,8 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Mercados Oaxaca</string>
+    <string name="menu_tit">MERCADOS OAXACA DE JUÁREZ</string>
+    <string name="menu_texto">Los mercados de Oaxaca ofrecen una delicia para todos los sentidos. Caminar por los mercados de la ciudad se convierte en toda una aventura de sabores, olores, texturas y colores que difícilmente pueden apreciarse en otros lugares de México.</string>
+    <string name="menu_btn_tuto">TUTORIAL</string>
+
+    <string name="menu_exp_zona">Zona Centro</string>
+    <string name="menu_exp_zona2">Zona Centro Historico</string>
+    <string name="menu_exp_zona3">Zona Sur</string>
+    <string name="menu_exp_zona4">Zona Oriente</string>
+    <string name="menu_exp_zona5">Zona Norte</string>
+    <string name="menu_exp_zona6">Zona Poniente</string>
+
+    <string name="menu_fragments_A">Acerca de</string>
+    <string name="menu_fragments_G">Galeria</string>
+    <string name="menu_fragments_L">Locales</string>
+
+
+
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_settings">Configuracion </string>
+    <string name="action_settingsE">Español </string>
+    <string name="action_settingsI">Ingles </string>
     <string name="historia">Historia</string>
     <string name="error_conexion">Verifique su conexión a internet</string>
     <string name="instala_nave">No se reconoce alguna aplicación de mapas </string>

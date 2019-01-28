@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.oaxaca.turismo.mercados.MainActivity;
@@ -35,13 +36,14 @@ public class GoogleService extends Service implements LocationListener{
     Location location;
     private Handler mHandler = new Handler();
     private Timer mTimer = null;
-    long notify_interval = 40000;
+    long notify_interval = 90000;
     public static JSONObject listam,urlimg;
 
     Location location2 = new Location("localizacion 2");
 
 
-    public GoogleService( ) {
+    public GoogleService() {
+
     }
 
     @Nullable
@@ -56,6 +58,7 @@ public class GoogleService extends Service implements LocationListener{
         super.onCreate();
         mTimer = new Timer();
         mTimer.schedule(new TimerTaskToGetLocation(),5,notify_interval);
+
     }
 
     @Override
@@ -146,44 +149,12 @@ public class GoogleService extends Service implements LocationListener{
 
     JSONObject lm, li;
 
-    public void crear(){
-        try
-        {
-            BufferedReader fin =
-                    new BufferedReader(
-                            new InputStreamReader(
-                                    openFileInput("listamercados.txt")));
-
-            String texto = fin.readLine();
-            //Toast.makeText(getApplicationContext(),texto,Toast.LENGTH_SHORT).show();
-            lm = new JSONObject(texto);
-            BufferedReader fin2 =
-                    new BufferedReader(
-                            new InputStreamReader(
-                                    openFileInput("listaimagenes.txt")));
-
-            String texto2 = fin2.readLine();
-            //Toast.makeText(getApplicationContext(),texto2,Toast.LENGTH_SHORT).show();
-            li = new JSONObject(texto2);
-            /*fin =new BufferedReader(
-                            new InputStreamReader(
-                                    openFileInput("listaimagenes.txt")));
-
-            texto = fin.readLine();
-            li = new JSONObject(texto);*/
-            fin2.close();
-            fin.close();
-
-        }
-        catch (Exception ex)
-        {
-            Toast.makeText(getApplicationContext(),"NEL NO HAY ARCHIVOS",Toast.LENGTH_SHORT).show();
-        }
-    }
 
 
     private void revisar() {
-
+         //crear();
+        //JSONObject objJson = li;
+        //JSONObject objJson2 = lm;
         JSONObject objJson = listam;
         JSONObject objJson2 = urlimg;
         try{
@@ -212,7 +183,7 @@ public class GoogleService extends Service implements LocationListener{
                 final String nnn=nombre;
                 final int iddd=id_m;
                 double distance = location.distanceTo(location2);
-                if(distance<4210 && distance>10){
+                if(distance<3210 && distance>10){
 
                     Thread hilo = new Thread(new Runnable() {
                         @Override
@@ -240,7 +211,7 @@ public class GoogleService extends Service implements LocationListener{
             }
 
         }catch (Exception ex){
-           // Toast.makeText(this,"sigo vivo",Toast.LENGTH_LONG).show();
+           Toast.makeText(this,ex.toString(),Toast.LENGTH_LONG).show();
         }
     }
 
