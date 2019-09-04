@@ -3,52 +3,53 @@
     <string name="app_name">Mercados Oaxaca</string>
     <string name="menu_tit">OAXACA DEJUÁREZ市場</string>
     <string name="menu_texto">オアハカの市場はすべての感覚に喜びを提供します。 都市の市場を歩くことは、メキシコの他の場所ではほとんど見られない味、香り、質感、色の冒険になります。</string>
-    <string name="menu_btn_tuto">TUTORIAL</string>
-    <string name="progress_menu">Descargando Informacion</string>
-    <string name="progress_idioma">Cambiando idioma</string>
-    <string name="menu_exp_zona">Zona Centro</string>
-    <string name="menu_exp_zona2">Zona Centro Historico</string>
-    <string name="menu_exp_zona3">Zona Sur</string>
-    <string name="menu_exp_zona4">Zona Oriente</string>
-    <string name="menu_exp_zona5">Zona Norte</string>
-    <string name="menu_exp_zona6">Zona Poniente</string>
+    <string name="menu_btn_tuto">チュートリアル</string>
+    <string name="progress_menu">情報をダウンロードする</string>
+    <string name="progress_idioma">言語の変更</string>
+    <string name="menu_exp_zona">ダウンタウンゾーン</string>
+    <string name="menu_exp_zona2">歴史的なダウンタウンエリア</string>
+    <string name="menu_exp_zona3">サウスゾーン</string>
+    <string name="menu_exp_zona4">東区</string>
+    <string name="menu_exp_zona5">北区</string>
+    <string name="menu_exp_zona6">西区</string>
 
-    <string name="action_settingsE">Español </string>
-    <string name="action_settingsI">Ingles </string>
-    <string name="action_settingsJ">Japones </string>
-    <string name="menu_fragments_A">Acerca de</string>
-    <string name="menu_fragments_G">Galeria</string>
-    <string name="menu_fragments_L">Locales</string>
+    <string name="action_settingsE">スペイン語 </string>
+    <string name="action_settingsI">英語 </string>
+    <string name="action_settingsJ">日本語 </string>
+    <string name="menu_fragments_A">について</string>
+    <string name="menu_fragments_G">ギャラリー</string>
+    <string name="menu_fragments_L">施設</string>
 
-    <string name="Calle">Street</string>
-    <string name="Numero">Num.</string>
-    <string name="Colonia">Col.</string>
-    <string name="CodigoPostal">PC.</string>
-    <string name="abierto_label">Open</string>
-    <string name="cerrado_label">Closed</string>
+    <string name="Calle">通り </string>
+    <string name="Numero">数</string>
+    <string name="Colonia">植民地</string>
+    <string name="CodigoPostal">郵便番号</string>
+    <string name="abierto_label">開く</string>
+    <string name="cerrado_label">閉店</string>
 
-    <string name="label_google">VISITA OAXACA:</string>
-    <string name="local_hist_titu">Historia</string>
-    <string name="local_produc_titu">Productos Caracteristicos</string>
-    <string name="local_contac_titu">Contacto</string>
+    <string name="label_google">オアハカを訪れる: </string>
 
-    <string name="notifi_geo_text">Descubre Oaxaca</string>
+    <string name="local_hist_titu">歴史</string>
+    <string name="local_produc_titu">特徴的な製品</string>
+    <string name="local_contac_titu">連絡先</string>
+
+    <string name="notifi_geo_text">発見する Oaxaca</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="historia">Historia</string>
-    <string name="error_conexion">Verifique su conexión a internet</string>
-    <string name="instala_nave">No se reconoce alguna aplicación de mapas </string>
-    <string name="texto_inicial">¿A dónde será tu siguiente aventura?</string>
+    <string name="historia">歴史</string>
+    <string name="error_conexion">インターネット接続を確認する</string>
+    <string name="instala_nave">マップアプリケーションが認識されません </string>
+    <string name="texto_inicial">次の冒険はどこですか？</string>
     <string name="default_notification_channel_id">default_channel_id</string>
     <string name="default_notification_channel_title">Canal de notificacion</string>
     <string name="title_activity_image_profile">image_profile</string>
-    <string name="peticion">Por favor actualiza los permisos</string>
-    <string name="fallo_mapa">Falló la visualización del mapa.</string>
-    <string name="mercado_20_de_noviembre">Mercado 20 de Noviembre</string>
+    <string name="peticion">権限を更新してください</string>
+    <string name="fallo_mapa">地図の表示に失敗しました。</string>
+    <string name="mercado_20_de_noviembre">市場 20 de Noviembre</string>
     <string name="_20_de_noviembre_512_centro_68000_oaxaca_oax">20 de Noviembre 512, Centro, 68000 Oaxaca, Oax.</string>
     <string name="_500_locales">500 Locales.</string>
     <string name="la_construcci_n_del_mercado_se_inicio_en_marzo_del_a_o_1862_concluy_ndose_en_1882_el_motivo_de_la_realizaci_n_de_este_mercado_se_debe_a_que_a_os_atr_s_la_plaza_de_las_armas_y_plazuela_de_los_cantaros_eran_ocupadas_por_vendedores_que_d_a_con_d_a_pon_an_su_tianguis_para_vender_sus_productos_con_el_paso_de_los_a_os_la_plazuela_de_los_cantaros_fue_convertida_en_alameda_de_le_n_hecho_que_llevo_a_los_comerciantes_a_abandonar_el_lugar_los_cuales_se_ubicaron_en_la_plaza_del_marqu_s_mercado_benito_ju_rez">La construcción del mercado se inicio en marzo del año 1862 concluyéndose en 1882, el motivo de la realización de este mercado se debe a que años atrás la Plaza de las Armas y Plazuela de los Cantaros eran ocupadas por vendedores que día con día ponían su tianguis para vender sus productos, con el paso de los años La Plazuela de los Cantaros fue convertida en Alameda de León, hecho que llevo a los comerciantes a abandonar el lugar, los cuales se ubicaron en la Plaza del Marqués (mercado Benito Juárez).</string>
-    <string name="titulo1_t">"Navegación en el Mercado"</string>
+    <string name="titulo1_t">"市場ナビゲーション"</string>
 
 </resources>

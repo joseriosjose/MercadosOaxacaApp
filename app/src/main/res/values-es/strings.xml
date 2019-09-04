@@ -21,22 +21,19 @@
     <string name="menu_fragments_G">Galeria</string>
     <string name="menu_fragments_L">Locales</string>
 
-
-    <string name="Calle">Calle </string>
+    <string name="Calle">Street</string>
     <string name="Numero">Num.</string>
     <string name="Colonia">Col.</string>
-    <string name="CodigoPostal">CP.</string>
-    <string name="abierto_label">Abierto</string>
-    <string name="cerrado_label">Cerrado</string>
+    <string name="CodigoPostal">PC.</string>
+    <string name="abierto_label">Open</string>
+    <string name="cerrado_label">Closed</string>
 
-    <string name="label_google">VISITA OAXACA: </string>
-
+    <string name="label_google">VISITA OAXACA:</string>
     <string name="local_hist_titu">Historia</string>
     <string name="local_produc_titu">Productos Caracteristicos</string>
     <string name="local_contac_titu">Contacto</string>
 
     <string name="notifi_geo_text">Descubre Oaxaca</string>
-
 
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
