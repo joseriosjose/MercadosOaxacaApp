@@ -14,8 +14,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
-    public static String base_url = "https://www.mercadosoaxacadejuarez.com/";
-    public static String llave="jose_es_puto";
+    public static String base_url = "https://mercadosoaxaca.000webhostapp.com/";
+    public static String llave="12345678";
 
     //290782SAAdrian
     @Override

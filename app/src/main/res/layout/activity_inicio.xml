@@ -155,7 +155,7 @@
                     android:layout_margin="10dp"
                     android:fontFamily="@font/sansbold"
                     android:textColor="@color/colorAccent"
-                    android:text="Historia"
+                    android:text="@string/local_hist_titu"
                     android:textSize="@dimen/title2" />
 
                 <com.ms.square.android.expandabletextview.ExpandableTextView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -192,7 +192,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="@font/sansbold"
-                    android:text="Productos Caracteristicos"
+                    android:text="@string/local_produc_titu"
                     android:textColor="@color/colorAccent"
                     android:textSize="@dimen/title2" />
 
@@ -231,7 +231,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="@font/sansbold"
-                    android:text="Contacto"
+                    android:text="@string/local_contac_titu"
                     android:textColor="@color/colorAccent"
                     android:textSize="@dimen/title2" />
 

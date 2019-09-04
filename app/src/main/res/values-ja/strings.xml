@@ -1,60 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Markets Oaxaca</string>
-    <string name="menu_tit">OAXACA DE JUÁREZ MARKETS</string>
-    <string name="menu_texto">The markets of Oaxaca offer a delight for all the senses. Walking through the markets of the city becomes an adventure of flavors, smells, textures and colors that can hardly be seen elsewhere in Mexico.</string>
+    <string name="app_name">Mercados Oaxaca</string>
+    <string name="menu_tit">OAXACA DEJUÁREZ市場</string>
+    <string name="menu_texto">オアハカの市場はすべての感覚に喜びを提供します。 都市の市場を歩くことは、メキシコの他の場所ではほとんど見られない味、香り、質感、色の冒険になります。</string>
     <string name="menu_btn_tuto">TUTORIAL</string>
-    <string name="progress_menu">Downloading Information</string>
-    <string name="progress_idioma">Changing language</string>
+    <string name="progress_menu">Descargando Informacion</string>
+    <string name="progress_idioma">Cambiando idioma</string>
+    <string name="menu_exp_zona">Zona Centro</string>
+    <string name="menu_exp_zona2">Zona Centro Historico</string>
+    <string name="menu_exp_zona3">Zona Sur</string>
+    <string name="menu_exp_zona4">Zona Oriente</string>
+    <string name="menu_exp_zona5">Zona Norte</string>
+    <string name="menu_exp_zona6">Zona Poniente</string>
 
-    <string name="menu_exp_zona">Downtown area</string>
-    <string name="menu_exp_zona2">Historic Downtown Area</string>
-    <string name="menu_exp_zona3">South Zone</string>
-    <string name="menu_exp_zona4">East Zone</string>
-    <string name="menu_exp_zona5">North Zone</string>
-    <string name="menu_exp_zona6">West Zone</string>
+    <string name="action_settingsE">Español </string>
+    <string name="action_settingsI">Ingles </string>
+    <string name="action_settingsJ">Japones </string>
+    <string name="menu_fragments_A">Acerca de</string>
+    <string name="menu_fragments_G">Galeria</string>
+    <string name="menu_fragments_L">Locales</string>
 
-    <string name="menu_fragments_A">About</string>
-    <string name="menu_fragments_G">Gallery</string>
-    <string name="menu_fragments_L">Locals</string>
-
-    <string name="action_settingsE">Spanish </string>
-    <string name="action_settingsI">English </string>
-    <string name="action_settingsJ">Japan </string>
-
-    <string name="Calle">Street </string>
+    <string name="Calle">Street</string>
     <string name="Numero">Num.</string>
     <string name="Colonia">Col.</string>
     <string name="CodigoPostal">PC.</string>
     <string name="abierto_label">Open</string>
     <string name="cerrado_label">Closed</string>
 
-    <string name="label_google">Explore Oaxaca </string>
+    <string name="label_google">VISITA OAXACA:</string>
+    <string name="local_hist_titu">Historia</string>
+    <string name="local_produc_titu">Productos Caracteristicos</string>
+    <string name="local_contac_titu">Contacto</string>
 
-    <string name="local_hist_titu">History</string>
-    <string name="local_produc_titu"> Characteristic Products </string>
-    <string name="local_contac_titu">Contact</string>
-
-    <string name="notifi_geo_text">Discover Oaxaca</string>
+    <string name="notifi_geo_text">Descubre Oaxaca</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="historia">History</string>
-    <string name="error_conexion">Check your Internet connection</string>
-    <string name="instala_nave">No map application is recognized</string>
-    <string name="texto_inicial">Where will your next adventure be?</string>
+    <string name="historia">Historia</string>
+    <string name="error_conexion">Verifique su conexión a internet</string>
+    <string name="instala_nave">No se reconoce alguna aplicación de mapas </string>
+    <string name="texto_inicial">¿A dónde será tu siguiente aventura?</string>
     <string name="default_notification_channel_id">default_channel_id</string>
     <string name="default_notification_channel_title">Canal de notificacion</string>
     <string name="title_activity_image_profile">image_profile</string>
-    <string name="peticion">Please update the permissions</string>
-    <string name="fallo_mapa">The map display failed.</string>
+    <string name="peticion">Por favor actualiza los permisos</string>
+    <string name="fallo_mapa">Falló la visualización del mapa.</string>
     <string name="mercado_20_de_noviembre">Mercado 20 de Noviembre</string>
     <string name="_20_de_noviembre_512_centro_68000_oaxaca_oax">20 de Noviembre 512, Centro, 68000 Oaxaca, Oax.</string>
     <string name="_500_locales">500 Locales.</string>
     <string name="la_construcci_n_del_mercado_se_inicio_en_marzo_del_a_o_1862_concluy_ndose_en_1882_el_motivo_de_la_realizaci_n_de_este_mercado_se_debe_a_que_a_os_atr_s_la_plaza_de_las_armas_y_plazuela_de_los_cantaros_eran_ocupadas_por_vendedores_que_d_a_con_d_a_pon_an_su_tianguis_para_vender_sus_productos_con_el_paso_de_los_a_os_la_plazuela_de_los_cantaros_fue_convertida_en_alameda_de_le_n_hecho_que_llevo_a_los_comerciantes_a_abandonar_el_lugar_los_cuales_se_ubicaron_en_la_plaza_del_marqu_s_mercado_benito_ju_rez">La construcción del mercado se inicio en marzo del año 1862 concluyéndose en 1882, el motivo de la realización de este mercado se debe a que años atrás la Plaza de las Armas y Plazuela de los Cantaros eran ocupadas por vendedores que día con día ponían su tianguis para vender sus productos, con el paso de los años La Plazuela de los Cantaros fue convertida en Alameda de León, hecho que llevo a los comerciantes a abandonar el lugar, los cuales se ubicaron en la Plaza del Marqués (mercado Benito Juárez).</string>
-    <string name="titulo1_t">Navigation in the Market</string>
-
-
+    <string name="titulo1_t">"Navegación en el Mercado"</string>
 
 </resources>

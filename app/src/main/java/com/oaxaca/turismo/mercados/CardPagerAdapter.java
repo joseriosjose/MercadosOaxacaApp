@@ -108,7 +108,7 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
 
     public static void hacerprti(final int ihm){
         final ProgressDialog progress =new ProgressDialog(estees);
-        progress.setMessage("Descargando Informacion");
+        progress.setMessage(estees.getString(R.string.progress_menu));
         progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progress.setCancelable(false);
         progress.show();

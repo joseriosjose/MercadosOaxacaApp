@@ -59,7 +59,11 @@ public class Head extends Fragment {
         String acum = "";
         if(mercado.getDireccion()!=null && !mercado.getDireccion().equals("null")) {
             String[] dire = mercado.getDireccion().split(",");
-            acum = "Calle " + dire[0] + ", Num." + dire[1] + " ,Col." + dire[2] + " ,CP." + dire[3];
+
+            acum = getString(R.string.Calle) + " "+ dire[0] +  ", "+
+                    getString(R.string.Numero) +" "+ dire[1] + ", " +
+                    getString(R.string.Colonia) + " "+ dire[2] + " ,"+
+                    getString(R.string.CodigoPostal)+ " "+dire[3];
 
         }
         address.setText(acum);
@@ -75,11 +79,11 @@ public class Head extends Fragment {
             int horaActual =calendario.get(Calendar.HOUR_OF_DAY);
             mercado.setHoraC(horaCierre+":"+horaCie[1]);
             if(horaActual >= horaInicio && horaActual< horaCierre){
-                horaIndica.setText("Abierto");
+                horaIndica.setText(getString(R.string.abierto_label));
                 horaIndica.setTextColor(Color.parseColor("#01B51F"));
                 horario.setText(mercado.getHoraA() + " - " +mercado.getHoraC());
             }else{
-                horaIndica.setText("Cerrado");
+                horaIndica.setText(getString(R.string.cerrado_label));
                 horaIndica.setTextColor(Color.parseColor("#ED0000"));
                 horario.setText(mercado.getHoraA() + " - " +mercado.getHoraC());
             }

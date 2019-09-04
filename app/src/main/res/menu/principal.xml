@@ -12,4 +12,10 @@
         android:orderInCategory="100"
         android:title="@string/action_settingsE"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_Japan"
+        android:orderInCategory="100"
+        android:title="@string/action_settingsJ"
+        app:showAsAction="never" />
+
 </menu>

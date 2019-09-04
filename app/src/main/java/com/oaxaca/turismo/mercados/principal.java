@@ -113,7 +113,7 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
             @Override
             public void onClick(View v) {
                 try {
-                    String labelLocation = "VISITA OAXACA: "+seleccionado;
+                    String labelLocation = getString(R.string.label_google)+seleccionado;
                     String uri = "geo:<" + la+ ">,<" + lo+ ">?q=<" +la + ">,<" + lo+ ">(" + labelLocation + ")";
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
                     startActivity(intent);
@@ -170,27 +170,53 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_expañol) {
-            Toast.makeText(getApplicationContext(),"Poner en español WE",Toast.LENGTH_LONG).show();
+
             Locale localizacion = new Locale("es", "ES");
 
             Locale.setDefault(localizacion);
             Configuration config = new Configuration();
             config.locale = localizacion;
             getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
-            Intent i_in  = new Intent(getApplicationContext(),principal.class);
+            Intent i_in  = new Intent(getApplicationContext(),MenuActivity.class);
             i_in.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            ProgressDialog progress =new ProgressDialog(principal.this);
+            progress.setMessage(getString(R.string.progress_idioma));
+            progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            progress.setCancelable(false);
+            progress.show();
             startActivity(i_in);
 
             return true;
         }else if (id == R.id.action_English) {
-            Toast.makeText(getApplicationContext(),"TRANSLATE TO ENGLISH",Toast.LENGTH_LONG).show();
+
             Locale localizacion = new Locale("en", "EN");
             Locale.setDefault(localizacion);
             Configuration config = new Configuration();
             config.locale = localizacion;
             getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
-            Intent i_in  = new Intent(getApplicationContext(),principal.class);
+            Intent i_in  = new Intent(getApplicationContext(),MenuActivity.class);
             i_in.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            ProgressDialog progress =new ProgressDialog(principal.this);
+            progress.setMessage(getString(R.string.progress_idioma));
+            progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            progress.setCancelable(false);
+            progress.show();
+            startActivity(i_in);
+            return true;
+        }else if (id == R.id.action_Japan) {
+
+            Locale localizacion = new Locale("ja", "JA");
+            Locale.setDefault(localizacion);
+            Configuration config = new Configuration();
+            config.locale = localizacion;
+            getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+            Intent i_in  = new Intent(getApplicationContext(),MenuActivity.class);
+            i_in.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            ProgressDialog progress =new ProgressDialog(principal.this);
+            progress.setMessage(getString(R.string.progress_idioma));
+            progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            progress.setCancelable(false);
+            progress.show();
             startActivity(i_in);
             return true;
         }
@@ -272,7 +298,7 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
 
                     bandera = true;
                     final ProgressDialog progress =new ProgressDialog(principal.this);
-                    progress.setMessage("Descargando Informacion");
+                    progress.setMessage(getString(R.string.progress_menu));
                     progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                     progress.setCancelable(false);
                     progress.show();

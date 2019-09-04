@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Mercados Oaxaca</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Configuracion</string>
+
+    <string name="mercado_20_de_noviembre">Mercado 20 de Noviembre</string>
+    <string name="_20_de_noviembre_512_centro_68000_oaxaca_oax">20 de Noviembre 512, Centro, 68000 Oaxaca, Oax.</string>
+    <string name="_500_locales">500 Locales.</string>
+    <string name="historia">Historia</string>
+    <string name="la_construcci_n_del_mercado_se_inicio_en_marzo_del_a_o_1862_concluy_ndose_en_1882_el_motivo_de_la_realizaci_n_de_este_mercado_se_debe_a_que_a_os_atr_s_la_plaza_de_las_armas_y_plazuela_de_los_cantaros_eran_ocupadas_por_vendedores_que_d_a_con_d_a_pon_an_su_tianguis_para_vender_sus_productos_con_el_paso_de_los_a_os_la_plazuela_de_los_cantaros_fue_convertida_en_alameda_de_le_n_hecho_que_llevo_a_los_comerciantes_a_abandonar_el_lugar_los_cuales_se_ubicaron_en_la_plaza_del_marqu_s_mercado_benito_ju_rez">La construcción del mercado se inicio en marzo del año 1862 concluyéndose en 1882, el motivo de la realización de este mercado se debe a que años atrás la Plaza de las Armas y Plazuela de los Cantaros eran ocupadas por vendedores que día con día ponían su tianguis para vender sus productos, con el paso de los años La Plazuela de los Cantaros fue convertida en Alameda de León, hecho que llevo a los comerciantes a abandonar el lugar, los cuales se ubicaron en la Plaza del Marqués (mercado Benito Juárez).</string>
+
+    <string name="error_conexion">Verifique su conexión a internet</string>
+    <string name="instala_nave">No se reconoce alguna aplicación de mapas </string>
+    <string name="texto_inicial">¿A dónde será tu siguiente aventura?</string>
+    <string name="default_notification_channel_id">default_channel_id</string>
+    <string name="default_notification_channel_title">Default Channel</string>
+
+
+</resources>
